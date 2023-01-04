@@ -100,37 +100,72 @@ export class AppService {
         RockPaperScissors[secondArray[index][1]],
       );
     }
-    // this.calculatePointsRockPaperScissors(
-    //   RockPaperScissors[secondArray[1][0]],
-    //   RockPaperScissors[secondArray[1][1]],
-    // );
+
     console.log(sum);
+  }
+
+  // 'Y' = 'PAPER',
+  // 'X' = 'ROCK',
+  // 'Z' = 'SCISSORS',
+  // 'A' = 'ROCK',
+  // 'B' = 'PAPER',
+  // 'C' = 'SCISSORS',
+  // //
+
+  async recalculateMove(player1, myChoice2) {
+    if (myChoice2 === 'ROCK') {
+      if (player1 === 'ROCK') {
+        return 'SCISSORS';
+      } else if (player1 === 'PAPER') {
+        return 'ROCK';
+      } else if (player1 === 'SCISSORS') {
+        return 'PAPER';
+      }
+    } else if (myChoice2 === 'PAPER') {
+      return player1;
+    } else if (myChoice2 === 'SCISSORS') {
+      if (player1 === 'ROCK') {
+        return 'PAPER';
+      } else if (player1 === 'PAPER') {
+        return 'SCISSORS';
+      } else if (player1 === 'SCISSORS') {
+        return 'ROCK';
+      }
+    }
   }
 
   async calculatePointsRockPaperScissors(player1, myChoice) {
     let numberResult = 0;
-    console.log(player1, myChoice);
-    if (player1 === myChoice) {
-      numberResult = ChoosePoints[myChoice] + 3;
+    // myChoice = await this.recalculateMove(player1, myChoice);
+    const newChoice = await this.recalculateMove(player1, myChoice);
+    if (player1 === newChoice) {
+      numberResult = ChoosePoints[newChoice] + 3;
       return numberResult;
-    } else if (player1 === 'ROCK' && myChoice === 'SCISSORS') {
-      numberResult = ChoosePoints[myChoice] + 0;
+    } else if (player1 === 'ROCK' && newChoice === 'SCISSORS') {
+      numberResult = ChoosePoints[newChoice] + 0;
       return numberResult;
-    } else if (player1 === 'SCISSORS' && myChoice === 'ROCK') {
-      numberResult = ChoosePoints[myChoice] + 6;
+    } else if (player1 === 'SCISSORS' && newChoice === 'ROCK') {
+      numberResult = ChoosePoints[newChoice] + 6;
       return numberResult;
-    } else if (player1 === 'PAPER' && myChoice === 'ROCK') {
-      numberResult = ChoosePoints[myChoice] + 0;
+    } else if (player1 === 'PAPER' && newChoice === 'ROCK') {
+      numberResult = ChoosePoints[newChoice] + 0;
       return numberResult;
-    } else if (player1 === 'ROCK' && myChoice === 'PAPER') {
-      numberResult = ChoosePoints[myChoice] + 6;
+    } else if (player1 === 'ROCK' && newChoice === 'PAPER') {
+      numberResult = ChoosePoints[newChoice] + 6;
       return numberResult;
-    } else if (player1 === 'SCISSORS' && myChoice === 'PAPER') {
-      numberResult = ChoosePoints[myChoice] + 0;
+    } else if (player1 === 'SCISSORS' && newChoice === 'PAPER') {
+      numberResult = ChoosePoints[newChoice] + 0;
       return numberResult;
-    } else if (player1 === 'PAPER' && myChoice === 'SCISSORS') {
-      numberResult = ChoosePoints[myChoice] + 6;
+    } else if (player1 === 'PAPER' && newChoice === 'SCISSORS') {
+      numberResult = ChoosePoints[newChoice] + 6;
       return numberResult;
+    }
+  }
+
+  async inputParseDay3(input) {
+    const firstArray: string[] = input.input.split('\n');
+    for (const index in firstArray) {
+      console.log(firstArray[index].length);
     }
   }
 }

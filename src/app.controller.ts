@@ -58,4 +58,11 @@ export class AppController {
     console.log('oi');
     return await this.appService.inputParseDay2(input);
   }
+
+
+  @Post('input/day3')
+  async inputDay3(@Body() input: any) {
+    console.log('oi');
+    return await this.appService.inputParseDay3(input);
+  }
 }

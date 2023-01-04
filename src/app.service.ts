@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
+import { ChoosePoints, RockPaperScissors } from 'utils/enum';
 
 @Injectable()
 export class AppService {
@@ -44,7 +45,7 @@ export class AppService {
     return 'Working!';
   }
 
-  async inputParse(input: any) {
+  async inputDay1(input: any) {
     const resultArray = [];
     let countingGroup = 0;
     let sum = 0;
@@ -82,5 +83,54 @@ export class AppService {
       return b.sum - a.sum;
     });
     console.log(resultArray);
+  }
+
+  async inputParseDay2(input) {
+    let sum = 0;
+    const firstArray: string[] = input.input.split('\n');
+    const secondArray = [];
+
+    for (const index in firstArray) {
+      secondArray.push(firstArray[index].split(' '));
+    }
+
+    for (const index in secondArray) {
+      sum += await this.calculatePointsRockPaperScissors(
+        RockPaperScissors[secondArray[index][0]],
+        RockPaperScissors[secondArray[index][1]],
+      );
+    }
+    // this.calculatePointsRockPaperScissors(
+    //   RockPaperScissors[secondArray[1][0]],
+    //   RockPaperScissors[secondArray[1][1]],
+    // );
+    console.log(sum);
+  }
+
+  async calculatePointsRockPaperScissors(player1, myChoice) {
+    let numberResult = 0;
+    console.log(player1, myChoice);
+    if (player1 === myChoice) {
+      numberResult = ChoosePoints[myChoice] + 3;
+      return numberResult;
+    } else if (player1 === 'ROCK' && myChoice === 'SCISSORS') {
+      numberResult = ChoosePoints[myChoice] + 0;
+      return numberResult;
+    } else if (player1 === 'SCISSORS' && myChoice === 'ROCK') {
+      numberResult = ChoosePoints[myChoice] + 6;
+      return numberResult;
+    } else if (player1 === 'PAPER' && myChoice === 'ROCK') {
+      numberResult = ChoosePoints[myChoice] + 0;
+      return numberResult;
+    } else if (player1 === 'ROCK' && myChoice === 'PAPER') {
+      numberResult = ChoosePoints[myChoice] + 6;
+      return numberResult;
+    } else if (player1 === 'SCISSORS' && myChoice === 'PAPER') {
+      numberResult = ChoosePoints[myChoice] + 0;
+      return numberResult;
+    } else if (player1 === 'PAPER' && myChoice === 'SCISSORS') {
+      numberResult = ChoosePoints[myChoice] + 6;
+      return numberResult;
+    }
   }
 }

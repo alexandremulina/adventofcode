@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
-import { ChoosePoints, RockPaperScissors } from 'utils/enum';
+import { first } from 'rxjs';
+import { Alphabet, ChoosePoints, RockPaperScissors } from 'utils/enum';
 
 @Injectable()
 export class AppService {
@@ -77,7 +78,6 @@ export class AppService {
       prev.sum > current.sum ? prev : current,
     );
     console.log(highestGroup);
-
     //Order DESC
     resultArray.sort((a, b) => {
       return b.sum - a.sum;
@@ -163,9 +163,146 @@ export class AppService {
   }
 
   async inputParseDay3(input) {
-    const firstArray: string[] = input.input.split('\n');
+    const finalWordArray = [];
+    const firstArray: any = input.input.split('\n');
     for (const index in firstArray) {
-      console.log(firstArray[index].length);
+      const n = firstArray[index].length / 2;
+
+      const compareArray = firstArray[index].match(
+        new RegExp('.{1,' + n + '}', 'g'),
+      );
+      const middleArray = [];
+      for (const word in compareArray[0]) {
+        if (compareArray[1].includes(compareArray[0][word])) {
+          //
+          if (!middleArray.includes(compareArray[0][word])) {
+            middleArray.push(compareArray[0][word]);
+          }
+        }
+      }
+      finalWordArray.push(middleArray[0]);
     }
+
+    let sum = 0;
+    for (const index in finalWordArray) {
+      sum += Alphabet[finalWordArray[index]];
+    }
+    console.log('Part one:', sum);
+    this.inputParseDay3Part2(input);
   }
+
+  async inputParseDay3Part2(input) {
+    const firstArray: any = input.input.split('\n');
+    const perChunk = 3; // items per chunk
+
+    const result = firstArray.reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / perChunk);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = []; // start a new chunk
+      }
+
+      resultArray[chunkIndex].push(item);
+
+      return resultArray;
+    }, []);
+
+    const finalArray = [];
+    for (const index in result) {
+      const middleArray = [];
+      for (const word in result[index][0]) {
+        if (
+          result[index][1].includes(result[index][0][word]) &&
+          result[index][2].includes(result[index][0][word])
+        ) {
+          //
+          if (!middleArray.includes(result[index][0][word])) {
+            middleArray.push(result[index][0][word]);
+          }
+        }
+      }
+      console.log(middleArray);
+      finalArray.push(middleArray[0]);
+    }
+    console.log(finalArray);
+    let sum = 0;
+    for (const index in finalArray) {
+      sum += Alphabet[finalArray[index]];
+    }
+    console.log('Part two:', sum);
+  }
+
+  async inputParseDay4(input) {
+    const firstArray = input.input.split('\n');
+
+    let sum = 0;
+    for (const index in firstArray) {
+      // this.returnRangOf2Points(firstArray[index].split(','));
+      let firstLetter;
+      let secondLetter;
+      let thirdLetter;
+      let fourthLetter;
+      console.log(firstArray[index].split(','));
+      firstArray[index].split(',').forEach((element, index) => {
+        if (index === 0) {
+          firstLetter = Number(element.split('-')[0]);
+          secondLetter = Number(element.split('-')[1]);
+        } else if (index === 1) {
+          thirdLetter = Number(element.split('-')[0]);
+
+          fourthLetter = Number(element.split('-')[1]);
+        }
+      });
+
+      // firstLetter = Number(firstArray[index].split(',')[0].slice(0, 1));
+      // secondLetter = Number(firstArray[index].split(',')[0].slice(2, 4));
+      // thirdLetter = Number(firstArray[index].split(',')[1].slice(0, 1));
+      // fourthLetter = Number(firstArray[index].split(',')[1].slice(2, 4));
+      //TO DO FIX
+      console.log(firstLetter, secondLetter, thirdLetter, fourthLetter);
+      // if (
+      //   // (firstLetter >= thirdLetter && secondLetter <= fourthLetter) ||
+      //   firstLetter < thirdLetter &&
+      //   secondLetter > fourthLetter
+      // ) {
+      //   console.log('Pair inside: ', firstArray[index].split(','));
+      //   sum += 1;
+      // }
+      // if (firstLetter > thirdLetter && secondLetter < fourthLetter) {
+      //   console.log('Pair inside: ', firstArray[index].split(','));
+      //   sum += 1;
+      // }
+      // if (firstLetter === thirdLetter || secondLetter === fourthLetter) {
+      //   console.log('Pair inside: ', firstArray[index].split(','));
+      //   sum += 1;
+      // }
+      if (
+        (firstLetter >= thirdLetter && firstLetter <= fourthLetter) ||
+        (secondLetter >= thirdLetter && secondLetter <= fourthLetter) ||
+        (thirdLetter >= firstLetter && thirdLetter <= secondLetter) ||
+        (fourthLetter >= firstLetter && fourthLetter <= secondLetter)
+      ) {
+        sum += 1;
+      }
+    }
+    console.log(sum);
+    // for (let i = 0; i < firstArray.length; i += 2) {
+    //   console.log(firstArray[i].split(','));
+    //   // this.returnRangOf2Points(firstArray[i].split(','));
+    // }
+  }
+
+  // async returnRangOf2Points(str) {
+  //   // console.log(str);
+  //   const firstLetter = Number(str[0].slice(0, 1));
+  //   const secondLetter = Number(str[0].slice(2, 4));
+  //   const thirdLetter = Number(str[1].slice(0, 1));
+  //   const fourthLetter = Number(str[1].slice(2, 4));
+
+  //   // console.log(secondLetter);
+  //   if (thirdLetter > firstLetter && fourthLetter < secondLetter) {
+  //     console.log('Pair inside:', str);
+  //     return true;
+  //   } else return false;
+  // }
 }

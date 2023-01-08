@@ -292,7 +292,7 @@ export class AppService {
     // }
   }
 
-  async inputDay5(input) {
+  async inputParseDay5(input) {
     const firstArray = input.input.split('\n');
     console.log(firstArray);
 

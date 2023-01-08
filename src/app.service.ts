@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import { first } from 'rxjs';
-import { Alphabet, ChoosePoints, RockPaperScissors } from 'utils/enum';
+import {
+  Alphabet,
+  ArraysEnum,
+  ChoosePoints,
+  RockPaperScissors,
+} from 'utils/enum';
 
 @Injectable()
 export class AppService {
@@ -294,13 +299,193 @@ export class AppService {
 
   async inputParseDay5(input) {
     const firstArray = input.input.split('\n');
-    console.log(firstArray);
 
-    // const array_one = ['F', 'T', 'C', 'L', 'R', 'P', 'G', 'Q'];
-    // const array_two = ['N', 'Q', 'H', 'W', 'R', 'F', 'S', 'J'];
-    // const awway_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
-    const exemple_one = ['N', 'Z'];
-    const exemple_two = ['D', 'C', 'M'];
-    const exemple_three = ['P'];
+    let array_one = ['F', 'T', 'C', 'L', 'R', 'P', 'G', 'Q'];
+    let array_two = ['N', 'Q', 'H', 'W', 'R', 'F', 'S', 'J'];
+    let awway_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
+    let array_four = ['V', 'S', 'T', 'D', 'F'];
+    let array_five = ['Q', 'L', 'D', 'W', 'V', 'F', 'Z'];
+    let array_six = ['Z', 'C', 'L', 'S'];
+    let array_seven = ['Z', 'B', 'M', 'V', 'D', 'F'];
+    let array_eight = ['T', 'J', 'B'];
+    let array_nine = ['Q', 'N', 'B', 'G', 'L', 'S', 'P', 'H'];
+
+    let exemple_one: any = ['Z', 'N'];
+    let exemple_two: any = ['M', 'C', 'D'];
+    let exemple_three: any = ['P'];
+
+    // firstArray.forEach((element) => {
+    //   exemple_one,
+    //     exemple_two,
+    //     exemple_three = await this.updateArrays(
+    //       exemple_one,
+    //       exemple_two,
+    //       exemple_three,element
+    //     ));
+    // });
+    firstArray.forEach(async (element) => {
+      [exemple_one, exemple_two, exemple_three] = await this.updateArrays(
+        exemple_one,
+        exemple_two,
+        exemple_three,
+        element.split(' '),
+      );
+    });
+
+    // for (let i = 0; i <= 3; i++) {}
+    const result =
+      exemple_one.slice(-1).pop() +
+      exemple_two.slice(-1).pop() +
+      exemple_three.slice(-1).pop();
+    console.log(result);
+
+    // })[(exemple_one, exemple_two, exemple_three)] = await this.updateArrays(
+    //   exemple_one,
+    //   exemple_two,
+    //   exemple_three,
+    //   firstArray[0].split(' '),
+    // );
+  }
+
+  updateArrays(array_one, array_two, array_three, element) {
+    // let arrOne = array_one;
+    // let arrTwo = array_two;
+    // let arrThree = array_three;
+    // console.log(element);
+    const numberOfSlotstoMove = Number(element[1]);
+    // const from = Number(element[3]);
+    // const to = Number(element[5]);
+    // const crater = array_two.slice(-1).pop();
+    // console.log(crater);
+    // console.log(array_two);
+    // console.log(ArraysEnum['1']);
+    // if (ArraysEnum[from].length > numberOfSlotstoMove) {
+    //   console.log(Ar)
+    // }
+
+    //Array that will be moved
+    switch (element[3]) {
+      case '1':
+        if (array_one.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_one.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_one.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_one.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_one.pop();
+          }
+        } else {
+          array_one.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              default:
+                break;
+            }
+          });
+          array_one = [];
+        }
+        break;
+      case '2':
+        // console.log('array one antes:', array_one);
+        // console.log('array two antes:', array_two);
+        if (array_two.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_two.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_two.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_two.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_two.pop();
+          }
+        } else {
+          array_two.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              default:
+                break;
+            }
+          });
+          array_two = [];
+        }
+        break;
+      case '3':
+        console.log(array_three);
+        if (array_three.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_three.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_three.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_three.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_three.pop();
+          }
+        } else {
+          array_three.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              default:
+                break;
+            }
+          });
+          array_three = [];
+        }
+
+        break;
+
+      default:
+        break;
+    }
+    console.log(array_one, array_two, array_three);
+
+    return [array_one, array_two, array_three];
   }
 }

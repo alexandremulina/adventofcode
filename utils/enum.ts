@@ -67,3 +67,9 @@ export const Alphabet = {
   Y: 51,
   Z: 52,
 };
+
+export enum ArraysEnum {
+  array_one = 1,
+  array_two,
+  array_three,
+}

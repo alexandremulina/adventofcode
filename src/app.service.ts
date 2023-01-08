@@ -292,17 +292,15 @@ export class AppService {
     // }
   }
 
-  // async returnRangOf2Points(str) {
-  //   // console.log(str);
-  //   const firstLetter = Number(str[0].slice(0, 1));
-  //   const secondLetter = Number(str[0].slice(2, 4));
-  //   const thirdLetter = Number(str[1].slice(0, 1));
-  //   const fourthLetter = Number(str[1].slice(2, 4));
+  async inputDay5(input) {
+    const firstArray = input.input.split('\n');
+    console.log(firstArray);
 
-  //   // console.log(secondLetter);
-  //   if (thirdLetter > firstLetter && fourthLetter < secondLetter) {
-  //     console.log('Pair inside:', str);
-  //     return true;
-  //   } else return false;
-  // }
+    // const array_one = ['F', 'T', 'C', 'L', 'R', 'P', 'G', 'Q'];
+    // const array_two = ['N', 'Q', 'H', 'W', 'R', 'F', 'S', 'J'];
+    // const awway_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
+    const exemple_one = ['N', 'Z'];
+    const exemple_two = ['D', 'C', 'M'];
+    const exemple_three = ['P'];
+  }
 }

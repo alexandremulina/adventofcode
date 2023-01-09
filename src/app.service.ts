@@ -300,89 +300,63 @@ export class AppService {
   async inputParseDay5(input) {
     const firstArray = input.input.split('\n');
 
-    let array_one = ['F', 'T', 'C', 'L', 'R', 'P', 'G', 'Q'];
-    let array_two = ['N', 'Q', 'H', 'W', 'R', 'F', 'S', 'J'];
-    let awway_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
-    let array_four = ['V', 'S', 'T', 'D', 'F'];
-    let array_five = ['Q', 'L', 'D', 'W', 'V', 'F', 'Z'];
-    let array_six = ['Z', 'C', 'L', 'S'];
-    let array_seven = ['Z', 'B', 'M', 'V', 'D', 'F'];
-    let array_eight = ['T', 'J', 'B'];
-    let array_nine = ['Q', 'N', 'B', 'G', 'L', 'S', 'P', 'H'];
+    // let array_one = ['F', 'T', 'C', 'L', 'R', 'P', 'G', 'Q'];
+    // let array_two = ['N', 'Q', 'H', 'W', 'R', 'F', 'S', 'J'];
+    // let awway_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
+    // let array_four = ['V', 'S', 'T', 'D', 'F'];
+    // let array_five = ['Q', 'L', 'D', 'W', 'V', 'F', 'Z'];
+    // let array_six = ['Z', 'C', 'L', 'S'];
+    // let array_seven = ['Z', 'B', 'M', 'V', 'D', 'F'];
+    // let array_eight = ['T', 'J', 'B'];
+    // let array_nine = ['Q', 'N', 'B', 'G', 'L', 'S', 'P', 'H'];
 
-    let exemple_one: any = ['Z', 'N'];
-    let exemple_two: any = ['M', 'C', 'D'];
-    let exemple_three: any = ['P'];
+    // let array_one: any = ['Z', 'N'];
+    // let array_two: any = ['M', 'C', 'D'];
+    // let awway_three: any = ['P'];
+    // let array_four = [];
+    // let array_five = [];
+    // let array_six = [];
+    // let array_seven = [];
+    // let array_eight = [];
+    // let array_nine = [];
 
-    // firstArray.forEach((element) => {
-    //   exemple_one,
-    //     exemple_two,
-    //     exemple_three = await this.updateArrays(
-    //       exemple_one,
-    //       exemple_two,
-    //       exemple_three,element
-    //     ));
-    // });
     // firstArray.forEach(async (element) => {
-    //   [exemple_one, exemple_two, exemple_three] = await this.updateArrays(
-    //     exemple_one,
-    //     exemple_two,
-    //     exemple_three,
+    //   [
+    //     array_one,
+    //     array_two,
+    //     awway_three,
+    //     array_four,
+    //     array_five,
+    //     array_six,
+    //     array_seven,
+    //     array_eight,
+    //     array_nine,
+    //   ] = this.updateArrays(
+    //     array_one,
+    //     array_two,
+    //     awway_three,
+    //     array_four,
+    //     array_five,
+    //     array_six,
+    //     array_seven,
+    //     array_eight,
+    //     array_nine,
     //     element.split(' '),
     //   );
     // });
 
-    // // for (let i = 0; i <= 3; i++) {}
     // const result =
-    //   exemple_one.slice(-1).pop() +
-    //   exemple_two.slice(-1).pop() +
-    //   exemple_three.slice(-1).pop();
+    //   array_one.slice(-1).pop() +
+    //   array_two.slice(-1).pop() +
+    //   awway_three.slice(-1).pop() +
+    //   array_four.slice(-1).pop() +
+    //   array_five.slice(-1).pop() +
+    //   array_six.slice(-1).pop() +
+    //   array_seven.slice(-1).pop() +
+    //   array_eight.slice(-1).pop() +
+    //   array_nine.slice(-1).pop();
+
     // console.log(result);
-
-    firstArray.forEach(async (element) => {
-      [
-        array_one,
-        array_two,
-        awway_three,
-        array_four,
-        array_five,
-        array_six,
-        array_seven,
-        array_eight,
-        array_nine,
-      ] = await this.updateArrays(
-        array_one,
-        array_two,
-        awway_three,
-        array_four,
-        array_five,
-        array_six,
-        array_seven,
-        array_eight,
-        array_nine,
-        element.split(' '),
-      );
-    });
-
-    const result =
-      array_one.slice(-1).pop() +
-      array_two.slice(-1).pop() +
-      awway_three.slice(-1).pop() +
-      array_four.slice(-1).pop() +
-      array_five.slice(-1).pop() +
-      array_six.slice(-1).pop() +
-      array_seven.slice(-1).pop() +
-      array_eight.slice(-1).pop() +
-      array_nine.slice(-1).pop();
-
-    console.log(result);
-
-    // })[(exemple_one, exemple_two, exemple_three)] = await this.updateArrays(
-    //   exemple_one,
-    //   exemple_two,
-    //   exemple_three,
-    //   firstArray[0].split(' '),
-    // );
   }
 
   updateArrays(
@@ -397,14 +371,33 @@ export class AppService {
     array_nine,
     element,
   ) {
+    console.log(
+      'ANTES 1:',
+      array_one,
+      'ANTES 2:',
+      array_two,
+      'ANTES 3:',
+      array_three,
+      'ANTES 4:',
+      array_four,
+      'ANTES 5:',
+      array_five,
+      'ANTES 6:',
+      array_six,
+      'ANTES 7:',
+      array_seven,
+      'ANTES 8:',
+      array_eight,
+      'ANTES 9:',
+      array_nine,
+    );
     // let arrOne = array_one;
     // let arrTwo = array_two;
     // let arrThree = array_three;
     // console.log(element);
     console.log(element);
     const numberOfSlotstoMove = Number(element[1]);
-    console.log(array_three);
-    console.log(array_nine);
+
     // const from = Number(element[3]);
     // const to = Number(element[5]);
     // const crater = array_two.slice(-1).pop();
@@ -418,7 +411,7 @@ export class AppService {
     //Array that will be moved
     switch (element[3]) {
       case '1':
-        if (array_one.length >= numberOfSlotstoMove) {
+        if (array_one.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -453,45 +446,46 @@ export class AppService {
             array_one.pop();
           }
         } else {
-          array_one.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_one.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_one.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_one.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_one.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_one.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_one.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_one.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_one.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_one.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_one = [];
         }
         break;
       case '2':
         // console.log('array one antes:', array_one);
         // console.log('array two antes:', array_two);
-        if (array_two.length >= numberOfSlotstoMove) {
+        if (array_two.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -527,39 +521,39 @@ export class AppService {
             array_two.pop();
           }
         } else {
-          array_two.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-                break;
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_two.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_two.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_two.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_two.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_two.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_two.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_two.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_two.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_two.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_two = [];
         }
         break;
@@ -600,6 +594,30 @@ export class AppService {
           }
         } else {
           switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_three.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_three.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_three.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_three.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_three.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_three.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_three.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_three.reverse()];
+              break;
             case '9':
               array_nine = [...array_nine, ...array_three.reverse()];
               break;
@@ -608,44 +626,11 @@ export class AppService {
               break;
           }
 
-          // array_three.forEach((element) => {
-          //   switch (element[5]) {
-          //     case '1':
-          //       array_one.push(element);
-          //       break;
-          //     case '2':
-          //       array_two.push(element);
-          //       break;
-          //     case '3':
-          //       array_three.push(element);
-          //       break;
-          //     case '4':
-          //       array_four.push(element);
-          //       break;
-          //     case '5':
-          //       array_five.push(element);
-          //       break;
-          //     case '6':
-          //       array_six.push(element);
-          //       break;
-          //     case '7':
-          //       array_seven.push(element);
-          //       break;
-          //     case '8':
-          //       array_eight.push(element);
-          //       break;
-          //     case '9':
-          //       array_nine.push(element);
-          //       break;
-          //     default:
-          //       break;
-          //   }
-          // });
           array_three = [];
         }
         break;
       case '4':
-        if (array_four.length >= numberOfSlotstoMove) {
+        if (array_four.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -681,44 +666,45 @@ export class AppService {
             array_four.pop();
           }
         } else {
-          array_four.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-                break;
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_four.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_four.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_four.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_four.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_four.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_four.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_four.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_four.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_four.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_four = [];
         }
         break;
       case '5':
-        if (array_five.length >= numberOfSlotstoMove) {
+        if (array_five.length > numberOfSlotstoMove) {
+          console.log(array_five);
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -748,48 +734,48 @@ export class AppService {
               case '9':
                 array_nine.push(array_five.slice(-1).pop());
                 break;
-              default:
-                break;
             }
             array_five.pop();
           }
         } else {
-          array_five.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_five.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_five.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_five.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_five.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_five.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_five.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_five.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_five.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_five.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_five = [];
         }
         break;
       case '6':
-        if (array_six.length >= numberOfSlotstoMove) {
+        if (array_six.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -823,44 +809,45 @@ export class AppService {
             array_six.pop();
           }
         } else {
-          array_six.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-                break;
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_six.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_six.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_six.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_six.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_six.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_six.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_six.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_six.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_six.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_six = [];
         }
         break;
+
       case '7':
-        if (array_seven.length >= numberOfSlotstoMove) {
+        if (array_seven.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -896,44 +883,44 @@ export class AppService {
             array_seven.pop();
           }
         } else {
-          array_seven.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-                break;
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_seven.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_seven.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_seven.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_seven.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_seven.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_seven.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_seven.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_seven.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_seven.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_seven = [];
         }
         break;
       case '8':
-        if (array_eight.length >= numberOfSlotstoMove) {
+        if (array_eight.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -968,45 +955,45 @@ export class AppService {
             array_eight.pop();
           }
         } else {
-          array_eight.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-                break;
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_eight.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_eight.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_eight.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_eight.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_eight.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_eight.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_eight.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_eight.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_eight.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_eight = [];
         }
         break;
       case '9':
-        if (array_nine.length >= numberOfSlotstoMove) {
-          for (let i = 0; i < numberOfSlotstoMove; i++) {
+        if (array_nine.length > numberOfSlotstoMove) {
+          for (let i = 0; i <= numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
                 array_one.push(array_nine.slice(-1).pop());
@@ -1041,38 +1028,39 @@ export class AppService {
             array_nine.pop();
           }
         } else {
-          array_nine.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              case '4':
-                array_four.push(element);
-                break;
-              case '5':
-                array_five.push(element);
-                break;
-              case '6':
-                array_six.push(element);
-                break;
-              case '7':
-                array_seven.push(element);
-                break;
-              case '8':
-                array_eight.push(element);
-                break;
-              case '9':
-                array_nine.push(element);
-              default:
-                break;
-            }
-          });
+          switch (element[5]) {
+            case '1':
+              array_one = [...array_one, ...array_nine.reverse()];
+              break;
+            case '2':
+              array_two = [...array_two, ...array_nine.reverse()];
+              break;
+            case '3':
+              array_three = [...array_three, ...array_nine.reverse()];
+              break;
+            case '4':
+              array_four = [...array_four, ...array_nine.reverse()];
+              break;
+            case '5':
+              array_five = [...array_five, ...array_nine.reverse()];
+              break;
+            case '6':
+              array_six = [...array_six, ...array_nine.reverse()];
+              break;
+            case '7':
+              array_seven = [...array_seven, ...array_nine.reverse()];
+              break;
+            case '8':
+              array_eight = [...array_eight, ...array_nine.reverse()];
+              break;
+            case '9':
+              array_nine = [...array_nine, ...array_nine.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
           array_nine = [];
         }
         break;
@@ -1081,22 +1069,22 @@ export class AppService {
         break;
     }
     console.log(
-      // '1:',
-      // array_one,
-      // '2:',
-      // array_two,
+      '1:',
+      array_one,
+      '2:',
+      array_two,
       '3:',
       array_three,
-      // '4:',
-      // array_four,
-      // '5:',
-      // array_five,
-      // '6:',
-      // array_six,
-      // '7:',
-      // array_seven,
-      // '8:',
-      // array_eight,
+      '4:',
+      array_four,
+      '5:',
+      array_five,
+      '6:',
+      array_six,
+      '7:',
+      array_seven,
+      '8:',
+      array_eight,
       '9:',
       array_nine,
     );

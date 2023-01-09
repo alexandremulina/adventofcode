@@ -323,20 +323,58 @@ export class AppService {
     //       exemple_three,element
     //     ));
     // });
+    // firstArray.forEach(async (element) => {
+    //   [exemple_one, exemple_two, exemple_three] = await this.updateArrays(
+    //     exemple_one,
+    //     exemple_two,
+    //     exemple_three,
+    //     element.split(' '),
+    //   );
+    // });
+
+    // // for (let i = 0; i <= 3; i++) {}
+    // const result =
+    //   exemple_one.slice(-1).pop() +
+    //   exemple_two.slice(-1).pop() +
+    //   exemple_three.slice(-1).pop();
+    // console.log(result);
+
     firstArray.forEach(async (element) => {
-      [exemple_one, exemple_two, exemple_three] = await this.updateArrays(
-        exemple_one,
-        exemple_two,
-        exemple_three,
+      [
+        array_one,
+        array_two,
+        awway_three,
+        array_four,
+        array_five,
+        array_six,
+        array_seven,
+        array_eight,
+        array_nine,
+      ] = await this.updateArrays(
+        array_one,
+        array_two,
+        awway_three,
+        array_four,
+        array_five,
+        array_six,
+        array_seven,
+        array_eight,
+        array_nine,
         element.split(' '),
       );
     });
 
-    // for (let i = 0; i <= 3; i++) {}
     const result =
-      exemple_one.slice(-1).pop() +
-      exemple_two.slice(-1).pop() +
-      exemple_three.slice(-1).pop();
+      array_one.slice(-1).pop() +
+      array_two.slice(-1).pop() +
+      awway_three.slice(-1).pop() +
+      array_four.slice(-1).pop() +
+      array_five.slice(-1).pop() +
+      array_six.slice(-1).pop() +
+      array_seven.slice(-1).pop() +
+      array_eight.slice(-1).pop() +
+      array_nine.slice(-1).pop();
+
     console.log(result);
 
     // })[(exemple_one, exemple_two, exemple_three)] = await this.updateArrays(
@@ -347,12 +385,26 @@ export class AppService {
     // );
   }
 
-  updateArrays(array_one, array_two, array_three, element) {
+  updateArrays(
+    array_one,
+    array_two,
+    array_three,
+    array_four,
+    array_five,
+    array_six,
+    array_seven,
+    array_eight,
+    array_nine,
+    element,
+  ) {
     // let arrOne = array_one;
     // let arrTwo = array_two;
     // let arrThree = array_three;
     // console.log(element);
+    console.log(element);
     const numberOfSlotstoMove = Number(element[1]);
+    console.log(array_three);
+    console.log(array_nine);
     // const from = Number(element[3]);
     // const to = Number(element[5]);
     // const crater = array_two.slice(-1).pop();
@@ -378,6 +430,23 @@ export class AppService {
               case '3':
                 array_three.push(array_one.slice(-1).pop());
                 break;
+              case '4':
+                array_four.push(array_one.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_one.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_one.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_one.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_one.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_one.slice(-1).pop());
               default:
                 break;
             }
@@ -395,6 +464,23 @@ export class AppService {
               case '3':
                 array_three.push(element);
                 break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
               default:
                 break;
             }
@@ -417,6 +503,24 @@ export class AppService {
               case '3':
                 array_three.push(array_two.slice(-1).pop());
                 break;
+              case '4':
+                array_four.push(array_two.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_two.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_two.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_two.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_two.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_two.slice(-1).pop());
+                break;
               default:
                 break;
             }
@@ -434,6 +538,24 @@ export class AppService {
               case '3':
                 array_three.push(element);
                 break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
+                break;
               default:
                 break;
             }
@@ -442,8 +564,7 @@ export class AppService {
         }
         break;
       case '3':
-        console.log(array_three);
-        if (array_three.length >= numberOfSlotstoMove) {
+        if (array_three.length > numberOfSlotstoMove) {
           for (let i = 0; i < numberOfSlotstoMove; i++) {
             switch (element[5]) {
               case '1':
@@ -455,13 +576,112 @@ export class AppService {
               case '3':
                 array_three.push(array_three.slice(-1).pop());
                 break;
+              case '4':
+                array_four.push(array_three.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_three.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_three.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_three.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_three.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_three.slice(-1).pop());
               default:
                 break;
             }
             array_three.pop();
           }
         } else {
-          array_three.forEach((element) => {
+          switch (element[5]) {
+            case '9':
+              array_nine = [...array_nine, ...array_three.reverse()];
+              break;
+
+            default:
+              break;
+          }
+
+          // array_three.forEach((element) => {
+          //   switch (element[5]) {
+          //     case '1':
+          //       array_one.push(element);
+          //       break;
+          //     case '2':
+          //       array_two.push(element);
+          //       break;
+          //     case '3':
+          //       array_three.push(element);
+          //       break;
+          //     case '4':
+          //       array_four.push(element);
+          //       break;
+          //     case '5':
+          //       array_five.push(element);
+          //       break;
+          //     case '6':
+          //       array_six.push(element);
+          //       break;
+          //     case '7':
+          //       array_seven.push(element);
+          //       break;
+          //     case '8':
+          //       array_eight.push(element);
+          //       break;
+          //     case '9':
+          //       array_nine.push(element);
+          //       break;
+          //     default:
+          //       break;
+          //   }
+          // });
+          array_three = [];
+        }
+        break;
+      case '4':
+        if (array_four.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_four.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_four.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_four.slice(-1).pop());
+                break;
+              case '4':
+                array_four.push(array_four.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_four.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_four.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_four.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_four.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_four.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_four.pop();
+          }
+        } else {
+          array_four.forEach((element) => {
             switch (element[5]) {
               case '1':
                 array_one.push(element);
@@ -472,20 +692,425 @@ export class AppService {
               case '3':
                 array_three.push(element);
                 break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
+                break;
               default:
                 break;
             }
           });
-          array_three = [];
+          array_four = [];
         }
-
+        break;
+      case '5':
+        if (array_five.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_five.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_five.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_five.slice(-1).pop());
+                break;
+              case '4':
+                array_four.push(array_five.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_five.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_five.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_five.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_five.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_five.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_five.pop();
+          }
+        } else {
+          array_five.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+              default:
+                break;
+            }
+          });
+          array_five = [];
+        }
+        break;
+      case '6':
+        if (array_six.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_six.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_six.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_six.slice(-1).pop());
+                break;
+              case '4':
+                array_four.push(array_six.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_six.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_six.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_six.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_six.slice(-1).pop());
+                break;
+              case '9':
+              default:
+                break;
+            }
+            array_six.pop();
+          }
+        } else {
+          array_six.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
+                break;
+              default:
+                break;
+            }
+          });
+          array_six = [];
+        }
+        break;
+      case '7':
+        if (array_seven.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_seven.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_seven.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_seven.slice(-1).pop());
+                break;
+              case '4':
+                array_four.push(array_seven.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_seven.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_seven.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_seven.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_seven.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_seven.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_seven.pop();
+          }
+        } else {
+          array_seven.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
+                break;
+              default:
+                break;
+            }
+          });
+          array_seven = [];
+        }
+        break;
+      case '8':
+        if (array_eight.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_eight.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_eight.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_eight.slice(-1).pop());
+                break;
+              case '4':
+                array_four.push(array_eight.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_eight.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_eight.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_eight.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_eight.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_eight.slice(-1).pop());
+              default:
+                break;
+            }
+            array_eight.pop();
+          }
+        } else {
+          array_eight.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
+                break;
+              default:
+                break;
+            }
+          });
+          array_eight = [];
+        }
+        break;
+      case '9':
+        if (array_nine.length >= numberOfSlotstoMove) {
+          for (let i = 0; i < numberOfSlotstoMove; i++) {
+            switch (element[5]) {
+              case '1':
+                array_one.push(array_nine.slice(-1).pop());
+                break;
+              case '2':
+                array_two.push(array_nine.slice(-1).pop());
+                break;
+              case '3':
+                array_three.push(array_nine.slice(-1).pop());
+                break;
+              case '4':
+                array_four.push(array_nine.slice(-1).pop());
+                break;
+              case '5':
+                array_five.push(array_nine.slice(-1).pop());
+                break;
+              case '6':
+                array_six.push(array_nine.slice(-1).pop());
+                break;
+              case '7':
+                array_seven.push(array_nine.slice(-1).pop());
+                break;
+              case '8':
+                array_eight.push(array_nine.slice(-1).pop());
+                break;
+              case '9':
+                array_nine.push(array_nine.slice(-1).pop());
+                break;
+              default:
+                break;
+            }
+            array_nine.pop();
+          }
+        } else {
+          array_nine.forEach((element) => {
+            switch (element[5]) {
+              case '1':
+                array_one.push(element);
+                break;
+              case '2':
+                array_two.push(element);
+                break;
+              case '3':
+                array_three.push(element);
+                break;
+              case '4':
+                array_four.push(element);
+                break;
+              case '5':
+                array_five.push(element);
+                break;
+              case '6':
+                array_six.push(element);
+                break;
+              case '7':
+                array_seven.push(element);
+                break;
+              case '8':
+                array_eight.push(element);
+                break;
+              case '9':
+                array_nine.push(element);
+              default:
+                break;
+            }
+          });
+          array_nine = [];
+        }
         break;
 
       default:
         break;
     }
-    console.log(array_one, array_two, array_three);
+    console.log(
+      // '1:',
+      // array_one,
+      // '2:',
+      // array_two,
+      '3:',
+      array_three,
+      // '4:',
+      // array_four,
+      // '5:',
+      // array_five,
+      // '6:',
+      // array_six,
+      // '7:',
+      // array_seven,
+      // '8:',
+      // array_eight,
+      '9:',
+      array_nine,
+    );
 
-    return [array_one, array_two, array_three];
+    return [
+      array_one,
+      array_two,
+      array_three,
+      array_four,
+      array_five,
+      array_six,
+      array_seven,
+      array_eight,
+      array_nine,
+    ];
   }
 }

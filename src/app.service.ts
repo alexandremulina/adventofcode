@@ -259,28 +259,8 @@ export class AppService {
         }
       });
 
-      // firstLetter = Number(firstArray[index].split(',')[0].slice(0, 1));
-      // secondLetter = Number(firstArray[index].split(',')[0].slice(2, 4));
-      // thirdLetter = Number(firstArray[index].split(',')[1].slice(0, 1));
-      // fourthLetter = Number(firstArray[index].split(',')[1].slice(2, 4));
-      //TO DO FIX
       console.log(firstLetter, secondLetter, thirdLetter, fourthLetter);
-      // if (
-      //   // (firstLetter >= thirdLetter && secondLetter <= fourthLetter) ||
-      //   firstLetter < thirdLetter &&
-      //   secondLetter > fourthLetter
-      // ) {
-      //   console.log('Pair inside: ', firstArray[index].split(','));
-      //   sum += 1;
-      // }
-      // if (firstLetter > thirdLetter && secondLetter < fourthLetter) {
-      //   console.log('Pair inside: ', firstArray[index].split(','));
-      //   sum += 1;
-      // }
-      // if (firstLetter === thirdLetter || secondLetter === fourthLetter) {
-      //   console.log('Pair inside: ', firstArray[index].split(','));
-      //   sum += 1;
-      // }
+
       if (
         (firstLetter >= thirdLetter && firstLetter <= fourthLetter) ||
         (secondLetter >= thirdLetter && secondLetter <= fourthLetter) ||
@@ -291,10 +271,6 @@ export class AppService {
       }
     }
     console.log(sum);
-    // for (let i = 0; i < firstArray.length; i += 2) {
-    //   console.log(firstArray[i].split(','));
-    //   // this.returnRangOf2Points(firstArray[i].split(','));
-    // }
   }
 
   async inputParseDay5(input) {
@@ -302,7 +278,7 @@ export class AppService {
 
     let array_one = ['F', 'T', 'C', 'L', 'R', 'P', 'G', 'Q'];
     let array_two = ['N', 'Q', 'H', 'W', 'R', 'F', 'S', 'J'];
-    let awway_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
+    let array_three = ['F', 'B', 'H', 'W', 'P', 'M', 'Q'];
     let array_four = ['V', 'S', 'T', 'D', 'F'];
     let array_five = ['Q', 'L', 'D', 'W', 'V', 'F', 'Z'];
     let array_six = ['Z', 'C', 'L', 'S'];
@@ -310,182 +286,37 @@ export class AppService {
     let array_eight = ['T', 'J', 'B'];
     let array_nine = ['Q', 'N', 'B', 'G', 'L', 'S', 'P', 'H'];
 
-    let exemple_one: any = ['Z', 'N'];
-    let exemple_two: any = ['M', 'C', 'D'];
-    let exemple_three: any = ['P'];
+    let objArray = {
+      '1': array_one,
+      '2': array_two,
+      '3': array_three,
+      '4': array_four,
+      '5': array_five,
+      '6': array_six,
+      '7': array_seven,
+      '8': array_eight,
+      '9': array_nine,
+    };
 
-    // firstArray.forEach((element) => {
-    //   exemple_one,
-    //     exemple_two,
-    //     exemple_three = await this.updateArrays(
-    //       exemple_one,
-    //       exemple_two,
-    //       exemple_three,element
-    //     ));
-    // });
-    firstArray.forEach(async (element) => {
-      [exemple_one, exemple_two, exemple_three] = await this.updateArrays(
-        exemple_one,
-        exemple_two,
-        exemple_three,
-        element.split(' '),
-      );
-    });
-
-    // for (let i = 0; i <= 3; i++) {}
-    const result =
-      exemple_one.slice(-1).pop() +
-      exemple_two.slice(-1).pop() +
-      exemple_three.slice(-1).pop();
-    console.log(result);
-
-    // })[(exemple_one, exemple_two, exemple_three)] = await this.updateArrays(
-    //   exemple_one,
-    //   exemple_two,
-    //   exemple_three,
-    //   firstArray[0].split(' '),
-    // );
-  }
-
-  updateArrays(array_one, array_two, array_three, element) {
-    // let arrOne = array_one;
-    // let arrTwo = array_two;
-    // let arrThree = array_three;
-    // console.log(element);
-    const numberOfSlotstoMove = Number(element[1]);
-    // const from = Number(element[3]);
-    // const to = Number(element[5]);
-    // const crater = array_two.slice(-1).pop();
-    // console.log(crater);
-    // console.log(array_two);
-    // console.log(ArraysEnum['1']);
-    // if (ArraysEnum[from].length > numberOfSlotstoMove) {
-    //   console.log(Ar)
-    // }
-
-    //Array that will be moved
-    switch (element[3]) {
-      case '1':
-        if (array_one.length >= numberOfSlotstoMove) {
-          for (let i = 0; i < numberOfSlotstoMove; i++) {
-            switch (element[5]) {
-              case '1':
-                array_one.push(array_one.slice(-1).pop());
-                break;
-              case '2':
-                array_two.push(array_one.slice(-1).pop());
-                break;
-              case '3':
-                array_three.push(array_one.slice(-1).pop());
-                break;
-              default:
-                break;
-            }
-            array_one.pop();
-          }
-        } else {
-          array_one.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              default:
-                break;
-            }
-          });
-          array_one = [];
-        }
-        break;
-      case '2':
-        // console.log('array one antes:', array_one);
-        // console.log('array two antes:', array_two);
-        if (array_two.length >= numberOfSlotstoMove) {
-          for (let i = 0; i < numberOfSlotstoMove; i++) {
-            switch (element[5]) {
-              case '1':
-                array_one.push(array_two.slice(-1).pop());
-                break;
-              case '2':
-                array_two.push(array_two.slice(-1).pop());
-                break;
-              case '3':
-                array_three.push(array_two.slice(-1).pop());
-                break;
-              default:
-                break;
-            }
-            array_two.pop();
-          }
-        } else {
-          array_two.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              default:
-                break;
-            }
-          });
-          array_two = [];
-        }
-        break;
-      case '3':
-        console.log(array_three);
-        if (array_three.length >= numberOfSlotstoMove) {
-          for (let i = 0; i < numberOfSlotstoMove; i++) {
-            switch (element[5]) {
-              case '1':
-                array_one.push(array_three.slice(-1).pop());
-                break;
-              case '2':
-                array_two.push(array_three.slice(-1).pop());
-                break;
-              case '3':
-                array_three.push(array_three.slice(-1).pop());
-                break;
-              default:
-                break;
-            }
-            array_three.pop();
-          }
-        } else {
-          array_three.forEach((element) => {
-            switch (element[5]) {
-              case '1':
-                array_one.push(element);
-                break;
-              case '2':
-                array_two.push(element);
-                break;
-              case '3':
-                array_three.push(element);
-                break;
-              default:
-                break;
-            }
-          });
-          array_three = [];
-        }
-
-        break;
-
-      default:
-        break;
+    for (const index in firstArray) {
+      console.log(firstArray[index].split(' '));
+      const array = firstArray[index].split(' ');
+      //move N from//Remove reverse to part two
+      const arrayToMove = objArray[array[3]].slice(-Number(array[1])).reverse();
+      //remove N from
+      objArray[array[3]].splice(-Number(array[1]));
+      //Array to receive
+      objArray[array[5]].push(...arrayToMove);
     }
-    console.log(array_one, array_two, array_three);
+    let finalWord = '';
+    for (const key in objArray) {
+      console.log(objArray[key].slice(-1).pop());
 
-    return [array_one, array_two, array_three];
+      finalWord += objArray[key].slice(-1).pop();
+    }
+    console.log(finalWord);
+    // for (const [key, value] of Object.entries(objArray)) {
+    //   console.log(`${key}: ${value}`);
+    // }
   }
 }

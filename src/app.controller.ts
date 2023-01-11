@@ -67,10 +67,14 @@ export class AppController {
   async inputDay4(@Body() input: any) {
     return await this.appService.inputParseDay4(input);
   }
-  
+
   @Post('input/day5')
   async inputDay5(@Body() input: any) {
     return await this.appService.inputParseDay5(input);
   }
-  
+
+  @Post('input/day6')
+  async inputDay6(@Body() input: any) {
+    return await this.appService.inputParseDay6(input);
+  }
 }

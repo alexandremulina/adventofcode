@@ -319,4 +319,34 @@ export class AppService {
     //   console.log(`${key}: ${value}`);
     // }
   }
+
+  inputParseDay6(input) {
+    const firstArray = input.input.split('\n');
+    let result = 0;
+    firstArray.forEach((element, index) => {
+      console.log(index);
+      console.log(element.split(''));
+      let state = true;
+      for (let i = 0; i < element.length; i++) {
+        if (element.slice(i, i + 14).length === 14) {
+          console.log(element.slice(i, i + 14).split(''));
+          const arrayToCompare = element.slice(i, i + 14).split('');
+          //rturn false if there is a duplicate
+          console.log(arrayToCompare.some((e, i, arr) => arr.indexOf(e) !== i));
+          if (
+            !arrayToCompare.some((e, i, arr) => arr.indexOf(e) !== i) &&
+            state === true
+          ) {
+            state = false;
+            result = i + 14;
+          }
+        }
+      }
+    });
+    console.log(result);
+  }
+
+  // seeDuplicates(arr) {
+  //   return arr.length !== new Set(arr).size;
+  // }
 }

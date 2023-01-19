@@ -347,11 +347,144 @@ export class AppService {
   }
 
   inputParseDay7(input) {
-    const firstArray = input.input.split('\n');
+    const firstArray = input.input.trim().split('\n');
     console.log(firstArray);
+    console.log(this.createTree(firstArray));
+    this.printTree(this.createTree(firstArray));
+
+    //Parte 1
+    // const thresholdSize = 100000;
+    // const tree = this.createTree(firstArray);
+
+    // // printTree(tree);
+
+    // let sumSmallFolder = 0;
+
+    // this.getSize(tree, (name, size) => {
+    //   if (size < thresholdSize) {
+    //     sumSmallFolder += size;
+    //   }
+    // });
+
+    // console.log(sumSmallFolder);
+
+    //parte 2
+    const totalDiskSpace = 70000000;
+    const requiredSpace = 30000000;
+
+    const tree = this.createTree(firstArray);
+
+    const usedSpace = this.getSize(tree);
+    const availableSpace = totalDiskSpace - usedSpace;
+    if (availableSpace > requiredSpace) {
+      throw new Error('There is already enough space');
+    }
+    const minimumFolderSize = requiredSpace - availableSpace;
+
+    const candidates = [];
+
+    this.getSize(tree, (name, size) => {
+      if (size >= minimumFolderSize) {
+        candidates.push({
+          name,
+          size,
+        });
+      }
+    });
+
+    candidates.sort((a, b) => a.size - b.size);
+
+    console.log(candidates[0].size);
   }
 
-  // seeDuplicates(arr) {
-  //   return arr.length !== new Set(arr).size;
-  // }
+  createTree(lines) {
+    const tree = {
+      name: '/',
+      isDirectory: true,
+      children: [],
+      parent: null,
+    }; // node: name, isDirectory, size, children, parent
+
+    let currentNode = tree;
+    let currentCommand = null;
+
+    for (const line of lines) {
+      if (line[0] === '$') {
+        // command
+        const match = /^\$ (?<command>\w+)(?: (?<arg>.+))?$/.exec(line);
+
+        currentCommand = match.groups.command;
+
+        if (currentCommand === 'cd') {
+          const target = match.groups.arg;
+          switch (target) {
+            case '/':
+              currentNode = tree;
+              break;
+            case '..':
+              currentNode = currentNode.parent;
+              break;
+            default:
+              currentNode = currentNode.children.find(
+                (folder) => folder.isDirectory && folder.name === target,
+              );
+          }
+        }
+      } else {
+        if (currentCommand === 'ls') {
+          // For now, it's a file/directory from a 'ls' command
+          const fileMatch = /^(?<size>\d+) (?<name>.+)$/.exec(line);
+          if (fileMatch) {
+            const node = {
+              name: fileMatch.groups.name,
+              size: parseInt(fileMatch.groups.size),
+              isDirectory: false,
+              parent: currentNode,
+            };
+            currentNode.children.push(node);
+          }
+          const dirMatch = /^dir (?<name>.+)$/.exec(line);
+          if (dirMatch) {
+            const node = {
+              name: dirMatch.groups.name,
+              isDirectory: true,
+              children: [],
+              parent: currentNode,
+            };
+            currentNode.children.push(node);
+          }
+        } else {
+          throw new Error('unkown state');
+        }
+      }
+    }
+
+    return tree;
+  }
+
+  printTree(node, depth = 0) {
+    console.log(
+      `${' '.repeat(depth * 2)}- ${node.name} (${
+        node.isDirectory ? 'dir' : `file, size=${node.size}`
+      })`,
+    );
+    if (node.isDirectory) {
+      for (const child of node.children) {
+        this.printTree(child, depth + 1);
+      }
+    }
+  }
+
+  getSize(node, directoryCallback = (node, directorySize) => {}) {
+    if (!node.isDirectory) {
+      return node.size;
+    }
+    const directorySize = node.children
+      .map((child) => this.getSize(child, directoryCallback))
+      .reduce((a, b) => a + b, 0);
+
+    directoryCallback(node.name, directorySize);
+
+    return directorySize;
+  }
 }
